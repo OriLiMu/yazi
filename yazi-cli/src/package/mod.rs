@@ -2,6 +2,8 @@
 
 yazi_macro::mod_flat!(add delete dependency deploy git hash install package upgrade);
 
+yazi_macro::mod_pub!(pinyin);
+
 use anyhow::Context;
 use yazi_fs::Xdg;
 

@@ -14,6 +14,9 @@ yazi-dds    = { path = "../yazi-dds", version = "25.3.7" }
 yazi-fs     = { path = "../yazi-fs", version = "25.3.7" }
 yazi-macro  = { path = "../yazi-macro", version = "25.3.7" }
 yazi-shared = { path = "../yazi-shared", version = "25.3.7" }
+yazi-config = { path = "../yazi-config", version = "25.3.7" }
+yazi-ffi    = { path = "../yazi-ffi", version = "25.3.7" }
+yazi-fm     = { path = "../yazi-fm", version = "25.3.7", optional = true }
 
 # External dependencies
 anyhow     = { workspace = true }
@@ -24,6 +27,8 @@ serde_json = { workspace = true }
 tokio      = { workspace = true }
 toml       = { workspace = true }
 twox-hash  = { workspace = true }
+dirs       = { workspace = true }
+signal-hook = "0.3.17"
 
 [build-dependencies]
 yazi-shared = { path = "../yazi-shared", version = "25.3.7" }
@@ -47,3 +52,8 @@ path = "src/main.rs"
 [package.metadata.binstall]
 pkg-url = "{ repo }/releases/download/v{ version }/yazi-{ target }{ archive-suffix }"
 bin-dir = "yazi-{ target }/{ bin }{ binary-ext }"
+
+[features]
+default    = [ "bin" ]
+bin        = [ "yazi-fm" ]
+vendored   = [ "yazi-fm?/vendored-lua" ]

@@ -12,3 +12,6 @@ result-*
 .vscode/
 
 *.snap
+
+test_dir/*
+test_pinyin/*

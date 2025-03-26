@@ -93,3 +93,30 @@ See https://yazi-rs.github.io/docs/image-preview for details.
 ## License
 
 Yazi is MIT-licensed. For more information check the [LICENSE](LICENSE) file.
+
+## 拼音搜索功能
+
+Yazi 支持使用拼音首字母来搜索中文文件名，无需输入完整的中文字符。
+
+### 使用方法
+
+在浏览文件时，按下 <kbd>f</kbd> 键启动过滤功能，然后直接输入拼音首字母即可：
+
+#### 纯中文文件例子:
+
+- 输入 `zwj` 可以匹配包含"中文件"的文件名
+- 输入 `zw` 可以匹配包含"中文"的文件名
+
+#### 中英文混合文件例子:
+
+```
+apple你好.md (其中"你好"拼音首字母为"nh")
+```
+
+只需搜索 `applenh` 就能找到这个文件！系统会自动将中文部分转为拼音首字母进行匹配。
+
+这个功能特别适合快速查找中文文件，大大提高了文件管理效率。所有搜索都自动支持拼音增强功能。
+
+详细说明请参阅 [拼音搜索文档](docs/pinyin_search.md)。
+
+<!-- 说明到此结束 -->

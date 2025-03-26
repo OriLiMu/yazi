@@ -1,0 +1,3 @@
+test_dir/中文文件.txt -> test_dir/zwwx.txt
+test_dir/中文目录 -> test_dir/zwxx
+test_dir/中文目录/测试文件.md -> test_dir/中文目录/xxwx.md

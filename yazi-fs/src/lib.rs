@@ -2,6 +2,8 @@
 
 yazi_macro::mod_pub!(cha mounts);
 
+yazi_macro::mod_pub!(pinyin_utils);
+
 yazi_macro::mod_flat!(cwd file files filter fns op path sorter sorting stage step xdg);
 
 pub fn init() {

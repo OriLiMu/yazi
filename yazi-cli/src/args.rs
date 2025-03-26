@@ -29,6 +29,8 @@ pub(super) enum Command {
 	PubTo(CommandPubTo),
 	/// Subscribe to messages from all remote instances.
 	Sub(CommandSub),
+	/// Convert Chinese file/folder names to Pinyin format
+	Pinyin(CommandPinyin),
 }
 
 #[derive(clap::Args)]
@@ -122,6 +124,18 @@ pub(super) struct CommandSub {
 	/// The kind of messages to subscribe to, separated by commas if multiple.
 	#[arg(index = 1)]
 	pub(super) kinds: String,
+}
+
+// 拼音命令参数定义
+#[derive(clap::Args)]
+pub(super) struct CommandPinyin {
+	/// Directory path to process. If none provided, current directory will be used.
+	#[arg(short, long)]
+	pub(super) dir: Option<String>,
+
+	/// Output file path to save the mapping results. Defaults to "pinyin_map.txt" in current directory.
+	#[arg(short, long, default_value = "pinyin_map.txt")]
+	pub(super) output: String,
 }
 
 // --- Macros

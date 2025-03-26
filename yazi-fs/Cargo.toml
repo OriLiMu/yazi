@@ -21,6 +21,7 @@ dirs        = { workspace = true }
 foldhash    = { workspace = true }
 futures     = { workspace = true }
 parking_lot = { workspace = true }
+pinyin      = "0.10.0"
 regex       = { workspace = true }
 scopeguard  = { workspace = true }
 serde       = { workspace = true }

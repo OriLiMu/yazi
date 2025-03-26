@@ -6,6 +6,7 @@ use std::process::ExitCode;
 
 use clap::Parser;
 use yazi_macro::{errln, outln};
+use crate::args::{Args, Command, CommandPub};
 
 #[tokio::main]
 async fn main() -> ExitCode {
@@ -100,6 +101,10 @@ async fn run() -> anyhow::Result<()> {
 			yazi_dds::Client::draw(cmd.kinds.split(',').collect()).await?;
 
 			tokio::signal::ctrl_c().await?;
+		}
+
+		Command::Pinyin(cmd) => {
+			package::pinyin::handle_pinyin_command(cmd.dir.as_deref(), &cmd.output)?;
 		}
 	}
 
