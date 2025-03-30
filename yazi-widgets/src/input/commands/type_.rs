@@ -14,6 +14,18 @@ impl Input {
 	pub fn type_(&mut self, key: &Key) -> bool {
 		let Some(c) = key.plain() else { return false };
 
+		// 检测"jk"序列
+		if c == 'k' && self.last_key == Some('j') {
+			// 重置last_key
+			self.last_key = None;
+			// 调用escape方法退出输入框
+			self.escape(());
+			return true;
+		}
+		
+		// 更新上一个按键
+		self.last_key = Some(c);
+
 		if self.mode() == InputMode::Insert {
 			self.type_str(c.encode_utf8(&mut [0; 4]));
 			return true;

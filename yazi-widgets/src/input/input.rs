@@ -14,11 +14,12 @@ pub struct Input {
 	pub snaps:    InputSnaps,
 	pub limit:    usize,
 	pub callback: Option<InputCallback>,
+	pub last_key: Option<char>,
 }
 
 impl Input {
 	pub fn new(value: String, limit: usize, callback: InputCallback) -> Self {
-		Self { snaps: InputSnaps::new(value, limit), limit, callback: Some(callback) }
+		Self { snaps: InputSnaps::new(value, limit), limit, callback: Some(callback), last_key: None }
 	}
 
 	pub(super) fn handle_op(&mut self, cursor: usize, include: bool) -> bool {
